@@ -12,19 +12,23 @@ Fredag: Göra grund sakerna för GUI och skapa en databas som kan kopplas till s
 v.18
 
 Torsdag: 
+
 Fredag:
 
 v.19
 
 Torsdag:
+
 Fredag:
 
 v.20
 
 Torsdag:
+
 Fredag:
 
 v.21
 
 Torsdag:
+
 Fredag:
