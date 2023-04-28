@@ -1,3 +1,5 @@
+package PastryPulverizer;
+
 import javax.swing.*;
 
 public class View {
