@@ -9,9 +9,11 @@ public class View {
     private JPanel Panel;
     private JTextPane textPane1;
     private JButton button1;
-    private JButton button2;
-    private JButton button3;
+    private JButton pulverizerButton;
+    private JButton pastryBakerButton;
     private JButton button4;
+    private JButton saveButton;
+    private JButton loadButton;
 
 
     public JPanel getPanel() {
@@ -28,6 +30,14 @@ public class View {
 
     public JButton getButton1() {
         return button1;
+    }
+
+    public JButton getSaveButton() {
+        return saveButton;
+    }
+
+    public JButton getLoadButton() {
+        return loadButton;
     }
 }
 
