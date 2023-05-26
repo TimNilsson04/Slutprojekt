@@ -40,6 +40,24 @@ public class Controller extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                     m.load();
+                    v.setTextPane1(m.getMoney());
+            }
+        });
+        view.getPulverizerButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                m.buyPastryPulverizer(m.getPulverizer());
+                System.out.println("You own " + m.getPulverizer().getOwned() + " Pulverizers\nThey will now cost " + m.getPulverizer().getCost() + " Pastries \n" + m.getPulverizeStrength() + " PulverizerStrength");
+                v.setTextPane1(m.getMoney());
+            }
+        });
+        view.getPastryBakerButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                m.buyPastryBuilding(m.getPastryBaker());
+                System.out.println("You own " + m.getPastryBaker().getOwned() + " PastryBakers\nThey will now cost " + m.getPastryBaker().getCost() + " Pastries \nYour Pps is " + m.getPastryBaker().getPps());
+                v.setTextPane1(m.getMoney());
+                m.timer();
             }
         });
     }
@@ -51,7 +69,7 @@ public class Controller extends JFrame {
     Controller thisIsTheProgram = new Controller(m, v);
     thisIsTheProgram.setVisible(true);
 
-
+        System.out.println("You own " + m.getPulverizer().getOwned() + " Pulverizers \n You own " + m.getPastryBaker().getOwned() + " PastryBakers \n Your PulverizerStrength is " + m.getPulverizeStrength() + " per click \n");
     }
 }
 

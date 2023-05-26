@@ -9,10 +9,51 @@ public class Model {
     Pulverizer Pulverizer = new Pulverizer();
     PastryBaker PastryBaker = new PastryBaker();
 
+    int fps = 30;
     int pastries = 0;
+    int Pps = 0;
+    int PulverizeStrength = 1;
 
-    public void addPastries(){
-        pastries++;
+    public PastryPulverizer.Buildings.Pulverizer getPulverizer() {
+        return Pulverizer;
+    }
+
+    public PastryPulverizer.Buildings.PastryBaker getPastryBaker() {
+        return PastryBaker;
+    }
+
+    public void buyPastryPulverizer(Building Building) {
+        if(pastries > Building.getCost()-1) {
+            pastries -= Building.getCost();
+            Building.setCost((int) (Building.getCost() * 1.20));
+            Building.setOwned(Building.getOwned() + 1);
+            PulverizeStrength = 1+(Pulverizer.getOwned() * Pulverizer.getPps());
+        } else {
+            System.out.println("You dont have enough pastries");
+        }
+    }
+
+    public void buyPastryBuilding(Building Building) {
+        if(pastries > Building.getCost()-1) {
+            pastries -= Building.getCost();
+            Building.setCost((int) (Building.getCost() * 1.20));
+            Building.setOwned(Building.getOwned() + 1);
+            PulverizeStrength = 1+(PastryBaker.getOwned() * PastryBaker.getPps());
+        } else {
+            System.out.println("You dont have enough pastries");
+        }
+    }
+    public int getPulverizeStrength() {
+        return PulverizeStrength;
+    }
+
+    public void setPulverizeStrength(int pulverizeStrength) {
+        PulverizeStrength = pulverizeStrength;
+    }
+
+    public void addPastries() {
+        PulverizeStrength = 1+(Pulverizer.getOwned() * Pulverizer.getPps());
+        pastries += PulverizeStrength;
     }
 
     public String getMoney() {
@@ -56,6 +97,7 @@ public class Model {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
     public void load(){
@@ -94,6 +136,20 @@ public class Model {
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void timer() {
+        double deltaT = 1000.0 / fps;
+        long lastTime = System.currentTimeMillis();
+
+        while (getPastryBaker().getOwned() > 0) {
+            long now = System.currentTimeMillis();
+            if (now - lastTime > deltaT) {
+                pastries += getPastryBaker().getPps();
+                lastTime = now;
+            }
+
         }
     }
 }

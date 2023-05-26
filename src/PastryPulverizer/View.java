@@ -39,5 +39,20 @@ public class View {
     public JButton getLoadButton() {
         return loadButton;
     }
+
+    public JButton getPulverizerButton() {
+        return pulverizerButton;
+    }
+
+    public JButton getPastryBakerButton() {
+        return pastryBakerButton;
+    }
+
+    public void setPulverizer(String money) {
+        pulverizerButton.setText(money);
+    }
+    public void setPastryBaker(String money) {
+        pastryBakerButton.setText(money);
+    }
 }
 
