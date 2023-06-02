@@ -30,7 +30,9 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <editable value="false"/>
+        </properties>
       </component>
       <component id="6c93c" class="javax.swing.JButton" binding="pastryBakerButton" default-binding="true">
         <constraints>

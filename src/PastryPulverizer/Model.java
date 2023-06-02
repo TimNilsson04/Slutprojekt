@@ -6,6 +6,8 @@ import java.sql.*;
 
 public class Model {
 
+
+
     Pulverizer Pulverizer = new Pulverizer();
     PastryBaker PastryBaker = new PastryBaker();
 
@@ -139,17 +141,5 @@ public class Model {
         }
     }
 
-    public void timer() {
-        double deltaT = 1000.0 / fps;
-        long lastTime = System.currentTimeMillis();
 
-        while (getPastryBaker().getOwned() > 0) {
-            long now = System.currentTimeMillis();
-            if (now - lastTime > deltaT) {
-                pastries += getPastryBaker().getPps();
-                lastTime = now;
-            }
-
-        }
-    }
 }

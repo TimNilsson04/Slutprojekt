@@ -10,8 +10,9 @@ public class Controller extends JFrame {
 
     Model model;
     View view;
+    Timer timer;
 
-    public Controller(Model m, View v){
+    public Controller(Model m, View v, Timer t){
 
         this.model = m;
         this.view = v;
@@ -57,7 +58,7 @@ public class Controller extends JFrame {
                 m.buyPastryBuilding(m.getPastryBaker());
                 System.out.println("You own " + m.getPastryBaker().getOwned() + " PastryBakers\nThey will now cost " + m.getPastryBaker().getCost() + " Pastries \nYour Pps is " + m.getPastryBaker().getPps());
                 v.setTextPane1(m.getMoney());
-                m.timer();
+
             }
         });
     }
@@ -66,9 +67,10 @@ public class Controller extends JFrame {
     public static void main(String[] args) {
     Model m = new Model();
     View v = new View();
-    Controller thisIsTheProgram = new Controller(m, v);
+    Timer t = new Timer();
+    Controller thisIsTheProgram = new Controller(m, v, t);
     thisIsTheProgram.setVisible(true);
-
+    t.run();
         System.out.println("You own " + m.getPulverizer().getOwned() + " Pulverizers \n You own " + m.getPastryBaker().getOwned() + " PastryBakers \n Your PulverizerStrength is " + m.getPulverizeStrength() + " per click \n");
     }
 }
